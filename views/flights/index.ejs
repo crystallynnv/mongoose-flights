@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <title>Flights</title>
-    <link rel="stylesheet" href="../../public/stylesheets/style.css">
 </head>
 <body>
-    <h1>Flights List</h1>
+    <h1>Flight List</h1>
     <table>
         <thead>
             <tr>
                 <th>Airline</th>
                 <th>Flight Number</th>
-                <th>Date</th>
+                <th>Departs</th>
             </tr>
         </thead>
         <tbody>
-            <% flights.forEach( (flight) => { %>
+            <% flights.forEach(function(flight){ %>
                 <tr>
                     <td><%= flight.airline %></td>
-                    <td><%= movie.flightNo %></td>
-                    <td><%= movie.mpaaRating %></td>
-                    <td><%= movie.cast.join(', ') %></td>
-                    <td><%= movie.nowShowing ? 'Yes' : 'No' %></td>
+                    <td><%= flight.flightNo %></td>
+                    <td><%= flight.departs %></td>
+                    <td><a href="/flights/<%= flight._id%>">Details</a></td>
                 </tr>
             <% }); %>
         </tbody>
     </table>
+    <a href="/flights/new">Add Flight</a>
   </body>
 </html>
