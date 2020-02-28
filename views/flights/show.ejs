@@ -37,9 +37,25 @@
                 <div><%=  destination.airport %></div>
                 <div><%=  destination.arrival %></div><br>
             <% }); %>
-
       <% } else { %>
         <h5>No Destination Yet</h5>
       <% } %>
+        <form method="GET" action="/flights/<%= flight._id %>/tickets/new">
+          <input type="submit" value="Add a Ticket">
+        </form>
+        <!-- <% if (ticket.length) { %>
+          <% ticket.forEach(ticket => { %>
+              <div><%=  ticket.seat %></div>
+              <div><%=  ticket.price %></div><br>
+          <% }); %>
+    <% } else { %>
+      <h5>No Tickets Yet</h5>
+    <% } %> -->
+
+
+        
+
+
+
 </body>
 </html>
