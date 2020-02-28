@@ -34,9 +34,7 @@ const flightSchema = new Schema({
       enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN'],
       default: 'DEN'
   },
-  destinations: {
-      type: [destinationSchema]
-  }
+  destinations: [destinationSchema]
 })
 
 module.exports = mongoose.model('Flight', flightSchema);

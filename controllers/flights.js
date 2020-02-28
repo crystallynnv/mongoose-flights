@@ -4,12 +4,32 @@ module.exports = {
     index,
     new: newFlight,
     create,
-    show
+    show,
+    delete: deleteOne,
+    edit,
+    // update,
+   
+}
+// function update(req, res) {
+
+// }
+
+
+function edit(req, res) {
+    Flight.findById(req.params.id, function(err, flight){
+    res.render('/flights/edit', {flight})
+    })
+}
+
+function deleteOne(req, res) {
+    Flight.findByIdAndDelete(req.params.id, function(err, flight){
+        res.redirect('/flights', {flight})
+    })
 }
 
 function show(req, res) {
     Flight.findById(req.params.id, function(err, flight){
-        res.render('flights/index')
+        res.render('flights/show', {flight})
     });
 }
 
