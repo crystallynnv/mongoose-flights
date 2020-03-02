@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <title>Details</title>
 </head>
 <body>
@@ -43,14 +44,16 @@
         <form method="GET" action="/flights/<%= flight._id %>/tickets/new">
           <input type="submit" value="Add a Ticket">
         </form>
-        <!-- <% if (ticket.length) { %>
-          <% ticket.forEach(ticket => { %>
+
+        <% if (tickets.length) { %>
+          <% tickets.forEach(ticket => { %>
               <div><%=  ticket.seat %></div>
               <div><%=  ticket.price %></div><br>
           <% }); %>
     <% } else { %>
       <h5>No Tickets Yet</h5>
-    <% } %> -->
+    <% } %>
+
 
 
         
