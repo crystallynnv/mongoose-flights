@@ -1,25 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <title>Details</title>
-</head>
-<body>
+<%- include('../partials/header')%>
     <%- include('../partials/nav')%>
     <section id="show-page">
-        <div>Airline: </div>
-        <div><%= flight.airline %></div>
-        <div>Flight Number: </div>
-        <div><%= flight.flightNo %></div>
-        <div>Departs: </div>
-        <div><%= flight.departs %></div>
-        <div>Airport: </div>
-        <div><%= flight.airport %></div>
+      <table class="ui celled collapsing very basic table">
+        <thead>
+          <tr>
+            <th>Airline</th>
+            <th>Flight Number</th>
+            <th>Departs</th>
+            <th>Airport</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= flight.airline %></td>
+            <td><%= flight.flightNo %></td>
+            <td><%= flight.departs %></td>
+            <td><%= flight.airport %></td>
+          </tr>
+        </tbody>
+
+      </table>
+        
         <form action="/flights/<%= flight._id%>/edit" method="GET">
-        <button type="submit">Edit</button></form>
-        <form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>">
+        <button class="ui button" type="submit">Edit</button></form>
+        <br>
+        <br>
+        <form class="ui form" id="add-destination-form" method="POST" action="/flights/<%= flight._id %>">
+          <div class="field">
             <label>Destination Airport:</label>
             <select name="airport">
               <option value="AUS">AUS</option>
@@ -28,9 +35,16 @@
               <option value="LAX">LAX</option>
               <option value="SAN">SAN</option>
             </select>
+
+          </div>
+          <div class="field">
+
             <label>Arrival:</label>
             <input type="datetime-local" name="arrival">
-            <input type="submit" value="Add Destination">
+            <br>
+            <br>
+            <input type="submit" value="Add Destination" class="ui button">
+          </div>
           </form>
       </section>
       <% if (flight.destinations.length) { %>
@@ -47,8 +61,17 @@
 
         <% if (tickets.length) { %>
           <% tickets.forEach(ticket => { %>
-              <div><%=  ticket.seat %></div>
-              <div><%=  ticket.price %></div><br>
+            <div class="ui divided three column grid">
+              <div class="row">
+                <div class="column">
+                  <%=  ticket.seat %>
+
+                  <%=  ticket.price %>
+                </div>
+              </div>
+
+            </div>
+              <br>
           <% }); %>
     <% } else { %>
       <h5>No Tickets Yet</h5>

@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <title>Flights</title>
-</head>
-<body>
+
+    <%- include('../partials/header')%>
     <%- include('../partials/nav')%>
     <h1>Flight List</h1>
-    <table>
+    <table class="ui very basic table">
         <thead>
             <tr>
                 <th>Airline</th>
@@ -29,7 +22,7 @@
                     <td><%= flight.departs %></td>
                     <td><a href="/flights/<%= flight._id%>">Details</a></td>
                     <td><form action="/flights/<%= flight._id %>?_method=DELETE" method="POST">
-                        <button type="submit">Delete</button>
+                        <button class="ui button" >Delete</button>
                     </form></td>
                 </tr>
             <% }); %> 

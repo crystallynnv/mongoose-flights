@@ -8,12 +8,7 @@ module.exports = {
     show,
     delete: deleteOne,
     edit,
-    // update,
-   
 }
-// function update(req, res) {
-
-// }
 
 
 function edit(req, res) {
@@ -24,14 +19,14 @@ function edit(req, res) {
 
 function deleteOne(req, res) {
     Flight.findByIdAndDelete(req.params.id, function(err, flight){
-        res.redirect('/flights', {flight})
+        res.redirect('/flights/index', {flight})
     })
 }
 
 function show(req, res) {
     Flight.findById(req.params.id, function(err, flight){
         Ticket.find({flight: flight._id}, function(err, tickets){
-            res.render('flights/show', {flight, tickets})
+            res.render(`flights/show`, {flight, tickets})
         })
     });
 }
@@ -48,10 +43,10 @@ function newFlight(req, res){
 }
 
 function create(req, res){
-    console.log(req.body);
+
     const flight = new Flight(req.body);
     flight.save(function(err){
-        if (err) return res.render('flights/new')
+        if (err) return res.render('/new')
         res.redirect('/flights');
     })
 }
