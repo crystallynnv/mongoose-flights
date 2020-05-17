@@ -13,7 +13,7 @@ module.exports = {
 
 function edit(req, res) {
     Flight.findById(req.params.id, function(err, flight){
-    res.render('/flights/edit', {flight})
+    res.render('flights/edit', {flight})
     })
 }
 
@@ -47,6 +47,6 @@ function create(req, res){
     const flight = new Flight(req.body);
     flight.save(function(err){
         if (err) return res.render('/new')
-        res.redirect('/flights');
+        res.redirect('/');
     })
 }

@@ -3,11 +3,11 @@ var router = express.Router();
 const flightsCtrl = require('../controllers/flights');
 
 router.get('/', flightsCtrl.index);
-router.get('/new', flightsCtrl.new);
-router.get('/:id', flightsCtrl.show);
-router.get('/:id/edit', flightsCtrl.edit);
+router.get('/flights/new', flightsCtrl.new);
+router.get('/flights/:id', flightsCtrl.show);
+router.get('/flights/:id/edit', flightsCtrl.edit);
 // router.put('/:id', flightsCtrl.update);
-router.post('/', flightsCtrl.create);
-router.delete('/:id', flightsCtrl.delete);
+router.post('/flights', flightsCtrl.create);
+router.delete('/flights/:id', flightsCtrl.delete);
 
 module.exports = router;

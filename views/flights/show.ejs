@@ -58,18 +58,17 @@
         <form method="GET" action="/flights/<%= flight._id %>/tickets/new">
           <input type="submit" value="Add a Ticket">
         </form>
-
+        <h2>Tickets</h2>
         <% if (tickets.length) { %>
+          <div class="ui celled grid">
+            <div class="row">
           <% tickets.forEach(ticket => { %>
-            <div class="ui divided three column grid">
-              <div class="row">
-                <div class="column">
+                <div class="three wide column">
                   <%=  ticket.seat %>
-
                   <%=  ticket.price %>
                 </div>
+             
               </div>
-
             </div>
               <br>
           <% }); %>
