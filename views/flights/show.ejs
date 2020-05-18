@@ -47,9 +47,10 @@
           </div>
           </form>
       </section>
+      <h2>Destinations</h2>
       <% if (flight.destinations.length) { %>
             <% flight.destinations.forEach(destination => { %>
-                <div><%=  destination.airport %></div>
+                <div><span>Airport:  </span><%=  destination.airport %></div>
                 <div><%=  destination.arrival %></div><br>
             <% }); %>
       <% } else { %>
@@ -60,10 +61,10 @@
         </form>
         <h2>Tickets</h2>
         <% if (tickets.length) { %>
-          <div class="ui celled grid">
-            <div class="row">
+          <div >
+            <div >
           <% tickets.forEach(ticket => { %>
-                <div class="three wide column">
+                <div >
                   <%=  ticket.seat %>
                   <%=  ticket.price %>
                 </div>

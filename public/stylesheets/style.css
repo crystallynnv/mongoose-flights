@@ -18,6 +18,18 @@ a {
 
 }
 
-nav {
-  margin-top: 50px;
+nav > a {
+  margin: 100px;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+nav > a:hover {
+  color: white;
+  background-color: #424748;
+}
+
+nav > a.active {
+  color: white;
 }
